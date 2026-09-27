@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="gu">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#140700">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="રામકબીર માળા">
+<link rel="manifest" href="manifest.json">
+<title>॥ શ્રી રામકબીર જાપ માળા ॥</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;user-select:none;}
+:root{
+  --header-orange:#FF3D00;
+  --card-bg:#361F17;
+  --card-border:#FFA000;
+  --body-bg:#22120C;
+  --bead-wood:#9C5238;
+  --gold-thread:#FFC107;
+  --text-white:#FFFFFF;
+  --text-gold:#FFE082;
+  --text-muted:#D7CCC8;
+}
+html, body{
+  background:#140700;
+  color:var(--text-white);
+  font-family:'Noto Sans Gujarati',system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
+  height:100%;
+  height:-webkit-fill-available;
+  height:100dvh;
+  width:100%;
+  overflow:hidden;
+  position:fixed;
+}
+.screen{
+  display:none;
+  height:100%;
+  height:100dvh;
+  width:100%;
+  flex-direction:column;
+  overflow:hidden;
+  position:absolute;
+  top:0;left:0;
+}
+.screen.active{display:flex;}
+
+/* ========================================================
+   WELCOME / FIRST SCREEN - EXACT MATCH TO USER'S SCREENSHOT
+   ======================================================== */
+#welcome{
+  background:radial-gradient(ellipse at center, #260D04 0%, #140700 70%, #0A0301 100%);
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:30px 24px;
+  position:relative;
+}
+.welcome-container{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  max-width:380px;
+  width:100%;
+  margin:auto;
+}
+.welcome-title-1{
+  font-size:32px;
+  font-weight:800;
+  color:#FFD700;
+  text-shadow:0 0 15px rgba(255,215,0,0.6), 0 2px 8px rgba(0,0,0,0.9);
+  line-height:1.25;
+  margin-bottom:6px;
+  letter-spacing:1px;
+}
+.welcome-title-2{
+  font-size:35px;
+  font-weight:800;
+  color:#FFD700;
+  text-shadow:0 0 15px rgba(255,215,0,0.6), 0 2px 8px rgba(0,0,0,0.9);
+  line-height:1.2;
+  margin-bottom:34px;
+  letter-spacing:1px;
+}
+.welcome-footer{
+  position:absolute;
+  bottom:max(22px, env(safe-area-inset-bottom, 22px));
+  left:0;right:0;
+  text-align:center;
+  font-size:13.5px;
+  font-weight:500;
+  color:rgba(255,255,255,0.75);
+  letter-spacing:0.5px;
+  text-shadow:0 1px 4px rgba(0,0,0,0.8);
+  pointer-events:none;
+}
+.main-footer-credit{
+  text-align:center;
+  font-size:10.5px;
+  font-weight:500;
+  color:rgba(255,255,255,0.45);
+  margin-top:3px;
+  padding-bottom:max(4px, env(safe-area-inset-bottom, 4px));
+  flex-shrink:0;
+  letter-spacing:0.3px;
+}
+.welcome-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  background:#260A02;
+  border:2.5px solid #FFC107;
+  border-radius:40px;
+  padding:14px 28px;
+  color:#FFD700;
+  font-size:16px;
+  font-weight:700;
+  cursor:pointer;
+  box-shadow:0 0 22px rgba(255,193,7,0.45), 0 6px 16px rgba(0,0,0,0.7);
+  font-family:inherit;
+  transition:all 0.15s ease-out;
+}
+.welcome-btn:active{
+  transform:scale(0.96);
+  box-shadow:0 0 12px rgba(255,193,7,0.6);
+}
+.welcome-install-btn{
+  display:none;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,215,0,0.4);
+  border-radius:30px;
+  padding:8px 18px;
+  color:#FFE082;
+  font-size:13px;
+  font-weight:600;
+  cursor:pointer;
+  margin-top:18px;
+  font-family:inherit;
+  transition:all 0.15s;
+}
+.welcome-install-btn:active{
+  background:rgba(255,255,255,0.18);
+  transform:scale(0.97);
+}
+
+/* ========================================================
+   MAIN JAP MALA SCREEN - EXACT MATCH TO USER'S SCREENSHOT
+   ======================================================== */
+#main{
+  background:var(--body-bg);
+  justify-content:space-between;
+}
+
+/* TOP ORANGE HEADER */
+.app-header{
+  background:var(--header-orange);
+  padding:10px 14px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-shrink:0;
+  box-shadow:0 2px 8px rgba(0,0,0,0.35);
+  z-index:20;
+}
+.header-btn{
+  background:none;border:none;color:#FFF;
+  font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;
+}
+.header-title{
+  font-size:17px;font-weight:700;color:#FFF;
+  text-align:center;flex:1;margin:0 10px;
+}
+.header-actions{display:flex;align-items:center;gap:14px;}
+.header-icon-btn{
+  background:none;border:none;font-size:20px;cursor:pointer;
+  transition:transform 0.1s;display:flex;align-items:center;
+}
+.header-icon-btn:active{transform:scale(0.85);}
+
+/* MAIN CONTENT AREA */
+.main-content{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+  position:relative;
+  padding:10px 14px 6px;
+  max-width:440px;
+  width:100%;
+  margin:0 auto;
+}
+
+/* TOP CARD (Counter & Pill) */
+.counter-card{
+  background:var(--card-bg);
+  border:2px solid var(--card-border);
+  border-radius:18px;
+  padding:12px 14px 10px;
+  text-align:center;
+  flex-shrink:0;
+  box-shadow:0 4px 14px rgba(0,0,0,0.5);
+  cursor:pointer;
+  transition:transform 0.1s;
+}
+.counter-card:active{transform:scale(0.98);}
+.counter-numbers{
+  font-size:38px;font-weight:800;color:var(--text-white);
+  line-height:1.1;letter-spacing:1px;
+}
+.mala-pill{
+  display:inline-flex;align-items:center;justify-content:center;
+  background:transparent;
+  border:1.5px solid var(--card-border);
+  border-radius:20px;
+  padding:3px 14px;
+  margin:8px auto 6px;
+  font-size:12px;font-weight:600;
+  color:var(--text-gold);
+}
+.mantra-row{
+  font-size:13px;font-weight:600;color:#FFF;
+  display:flex;align-items:center;justify-content:center;gap:4px;
+  margin-top:2px;
+}
+.mantra-row span{font-size:11px;opacity:0.8;}
+
+/* MALA STAGE WITH GOLDEN THREAD */
+.mala-stage{
+  flex:1;
+  min-height:0;
+  width:100%;
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  touch-action:none;
+}
+
+/* Golden Vertical Thread */
+.golden-thread{
+  position:absolute;
+  top:0;bottom:0;
+  width:4px;
+  background:var(--gold-thread);
+  box-shadow:0 0 8px rgba(255,193,7,0.7);
+  z-index:1;
+}
+
+/* Bead Track */
+.beads-track{
+  position:relative;
+  width:100%;
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  z-index:2;
+}
+
+/* 5 BEAD SLOTS */
+.bead-slot{
+  position:absolute;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  transition:all 0.16s cubic-bezier(0.1, 0.9, 0.2, 1);
+}
+
+.bead-slot.pos-far-top{
+  transform:translateY(-160px) scale(0.72);
+  opacity:0.4;
+  z-index:2;
+}
+.bead-slot.pos-top{
+  transform:translateY(-80px) scale(0.86);
+  opacity:0.85;
+  z-index:3;
+}
+.bead-slot.pos-center{
+  transform:translateY(0px) scale(1.02);
+  opacity:1;
+  z-index:10;
+  cursor:grab;
+}
+.bead-slot.pos-bottom{
+  transform:translateY(80px) scale(0.86);
+  opacity:0.85;
+  z-index:3;
+}
+.bead-slot.pos-far-bottom{
+  transform:translateY(160px) scale(0.72);
+  opacity:0.4;
+  z-index:2;
+}
+
+/* 3D SPHERICAL WOOD BEAD */
+.manka{
+  width:72px;height:72px;border-radius:50%;
+  background:radial-gradient(circle at 35% 30%, #A95D42 0%, #873F28 45%, #562414 80%, #351308 100%);
+  border:1.5px solid #4A1E10;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  box-shadow:
+    inset 0 3px 6px rgba(255,200,180,0.35),
+    inset 0 -5px 10px rgba(0,0,0,0.7),
+    0 6px 14px rgba(0,0,0,0.8);
+  position:relative;
+}
+.manka::before{
+  content:'';position:absolute;left:8%;right:8%;top:50%;
+  height:1px;background:rgba(0,0,0,0.25);
+  transform:translateY(-50%);
+}
+.manka-text{
+  font-size:11px;font-weight:700;color:#FFF;
+  text-shadow:0 1px 2px rgba(0,0,0,0.8);
+  line-height:1.1;pointer-events:none;
+}
+.manka-num{
+  font-size:11px;font-weight:700;color:#FFE082;
+  margin-top:2px;pointer-events:none;
+}
+
+/* ACTIVE BEAD GOLDEN RING */
+.bead-slot.pos-center .gold-ring{
+  width:92px;height:92px;border-radius:50%;
+  border:3.5px solid var(--card-border);
+  box-shadow:0 0 20px rgba(255,160,0,0.75), inset 0 0 10px rgba(255,160,0,0.3);
+  display:flex;align-items:center;justify-content:center;
+  padding:4px;
+}
+.bead-slot.pos-center .manka{
+  width:76px;height:76px;
+  background:radial-gradient(circle at 35% 30%, #BA6A4E 0%, #95472F 45%, #632B1A 80%, #3B160B 100%);
+}
+.bead-slot.pos-center .manka-text{
+  font-size:12px;font-weight:800;color:#FFF;
+}
+.bead-slot.pos-center .manka-num{
+  font-size:12px;font-weight:800;color:#FFF;
+}
+
+/* MERU BEAD SPECIAL DISPLAY */
+.bead-slot .manka.is-meru{
+  width:84px!important;
+  height:84px!important;
+  background:radial-gradient(circle at 30% 25%, #FFF59D 0%, #FFD700 35%, #FF8F00 70%, #B71C1C 100%)!important;
+  border:2.5px solid #FFF9C4!important;
+  box-shadow:0 0 32px rgba(255,215,0,0.95), inset 0 3px 8px rgba(255,255,255,0.8)!important;
+}
+.bead-slot .manka.is-meru .manka-text{
+  color:#3A0505!important;
+  font-weight:900!important;
+  font-size:14.5px!important;
+  letter-spacing:0.5px;
+  text-shadow:0 1px 2px rgba(255,240,180,0.8);
+}
+.bead-slot .manka.is-meru .manka-num{
+  display:none!important;
+}
+
+/* SWIPE HINT PILL */
+.swipe-hint-pill{
+  position:absolute;
+  bottom:16px;
+  background:rgba(0,0,0,0.85);
+  border:1px solid rgba(255,255,255,0.2);
+  border-radius:20px;
+  padding:6px 16px;
+  font-size:12px;font-weight:700;color:#FFF;
+  box-shadow:0 3px 8px rgba(0,0,0,0.6);
+  z-index:15;
+  pointer-events:none;
+}
+
+/* BOTTOM 3 ACTION BUTTONS */
+.bottom-actions{
+  display:grid;
+  grid-template-columns:1.5fr 1fr 1.3fr;
+  gap:8px;
+  padding-bottom:4px;
+  flex-shrink:0;
+}
+.btn-auto-jap{
+  background:#FF5722;
+  color:#FFF;
+  border:none;
+  border-radius:14px;
+  padding:12px 6px;
+  font-size:14px;font-weight:700;
+  display:flex;align-items:center;justify-content:center;gap:4px;
+  cursor:pointer;font-family:inherit;
+  box-shadow:0 3px 10px rgba(255,87,34,0.4);
+}
+.btn-auto-jap:active{background:#E64A19;}
+.btn-speed{
+  background:var(--card-bg);
+  border:1.5px solid var(--card-border);
+  color:var(--text-gold);
+  border-radius:14px;
+  padding:12px 4px;
+  font-size:14px;font-weight:700;
+  cursor:pointer;font-family:inherit;
+}
+.btn-speed:active{background:rgba(255,160,0,0.2);}
+.btn-reset{
+  background:var(--card-bg);
+  border:1.5px solid #FF5252;
+  color:#FF8A80;
+  border-radius:14px;
+  padding:12px 4px;
+  font-size:13px;font-weight:700;
+  cursor:pointer;font-family:inherit;
+}
+.btn-reset:active{background:rgba(255,82,82,0.2);}
+
+/* MERU VANDAN POPUP (૧૦૮ પૂરા થતાં) */
+.meru-modal{
+  position:fixed;top:0;left:0;right:0;bottom:0;
+  background:rgba(10,3,0,0.92);
+  z-index:300;
+  display:none;align-items:center;justify-content:center;
+  padding:20px;
+}
+.meru-modal.show{display:flex;}
+.meru-card{
+  background:radial-gradient(ellipse at top,#4A1E10 0%,#200B05 85%);
+  border:2px solid var(--card-border);
+  border-radius:20px;
+  padding:26px 18px;text-align:center;
+  max-width:330px;width:100%;
+  box-shadow:0 0 35px rgba(255,160,0,0.45);
+  animation:modalPop 0.3s cubic-bezier(0.2, 0.9, 0.3, 1.2);
+}
+@keyframes modalPop{from{transform:scale(0.85);opacity:0;}to{transform:scale(1);opacity:1;}}
+.meru-title{font-size:22px;font-weight:800;color:var(--text-gold);margin-bottom:6px;}
+.meru-rule{
+  font-size:13px;color:#FFCC80;line-height:1.7;
+  background:rgba(255,87,34,0.15);border:1px solid rgba(255,87,34,0.35);
+  border-radius:12px;padding:12px 14px;margin:12px 0 18px;
+}
+.meru-btn{
+  width:100%;background:linear-gradient(135deg,#FF5722,#D84315);
+  color:#fff;border:none;border-radius:12px;padding:13px;
+  font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;
+  box-shadow:0 4px 16px rgba(255,87,34,0.4);
+  margin-bottom:8px;
+}
+.meru-btn-sec{
+  width:100%;background:transparent;
+  color:#FFCC80;border:1px solid rgba(255,215,0,0.4);
+  border-radius:12px;padding:10px;font-size:13px;cursor:pointer;font-family:inherit;
+}
+
+/* HISTORY SCREEN */
+#history{background:var(--body-bg);}
+.history-header{
+  background:var(--header-orange);padding:12px 14px;
+  display:flex;align-items:center;gap:12px;flex-shrink:0;
+}
+.history-title{font-size:17px;font-weight:700;color:#FFF;flex:1;}
+.hist-list{flex:1;overflow-y:auto;padding:12px;}
+.hist-item{
+  background:var(--card-bg);border:1px solid rgba(255,160,0,0.3);
+  border-radius:10px;padding:12px 14px;margin-bottom:8px;
+}
+.hist-date{font-size:11px;color:rgba(255,248,231,0.5);margin-bottom:4px;}
+.hist-info{font-size:14px;color:var(--text-white);}
+.hist-info span{color:var(--text-gold);font-weight:700;}
+.hist-empty{text-align:center;padding:60px 20px;color:rgba(255,248,231,0.4);font-size:15px;}
+</style>
+</head>
+<body>
+
+<!-- ========================================================
+     SCREEN 1: WELCOME SCREEN (EXACT MATCH TO USER'S SCREENSHOT)
+     ======================================================== -->
+<div id="welcome" class="screen active">
+  <div class="welcome-container">
+    <div class="welcome-title-1">॥ શ્રી રામકબીર ॥</div>
+    <div class="welcome-title-2">જાપ માળા</div>
+    <button class="welcome-btn" onclick="startJapFromWelcome()">
+      <span>👆</span> <span>ટૅપ કરી દર્શન સાથે શરૂ કરો</span>
+    </button>
+    <button id="installAppBtn" class="welcome-install-btn" onclick="installPWA()">
+      <span>📲</span> <span>મોબાઇલમાં એપ ઇન્સ્ટોલ કરો</span>
+    </button>
+  </div>
+  <div class="welcome-footer">
+    Made by Prashant Bhagat from Vadodara
+  </div>
+</div>
+
+<!-- ========================================================
+     SCREEN 2: MAIN JAAP MALA SCREEN
+     ======================================================== -->
+<div id="main" class="screen">
+  <!-- TOP RED/ORANGE HEADER -->
+  <div class="app-header">
+    <button class="header-btn" onclick="goToWelcome()" title="પાછા જાઓ">←</button>
+    <div class="header-title">શ્રી રામકબીર જાપ માળા</div>
+    <div class="header-actions">
+      <button class="header-btn" onclick="showHistory()" title="જાપ ઇતિહાસ" style="font-size:18px;">📋</button>
+      <button class="header-icon-btn" onclick="toggleSound()" id="soundIconBtn" title="સાઉન્ડ">📢</button>
+      <button class="header-icon-btn" onclick="toggleVibration()" id="vibeIconBtn" title="વાઇબ્રેશન">📳</button>
+    </div>
+  </div>
+
+  <div class="main-content">
+    <!-- TOP CARD WITH ૩ / ૧૦૮ AND PILL -->
+    <div class="counter-card" onclick="advanceBead('down')">
+      <div class="counter-numbers" id="counterDisplay">૩ / ૧૦૮</div>
+      <div class="mala-pill">
+        કુલ પૂરી થયેલી માળા: <span id="totalMalaCount" style="margin:0 4px;">૦</span> 📿
+      </div>
+      <div class="mantra-row">
+        ॥ શ્રી રામકબીરાય નમઃ ॥ <span>▼</span>
+      </div>
+    </div>
+
+    <!-- MALA STAGE CENTERED WITH GOLDEN THREAD -->
+    <div class="mala-stage" id="malaStage">
+      <div class="golden-thread"></div>
+      <div class="beads-track" id="beadsTrack">
+        <!-- 5 SLOTS (Upcoming on Top, Active in Center, Done at Bottom) -->
+        <div class="bead-slot pos-far-top" id="slotFarTop">
+          <div class="manka"><div class="manka-text">રામકબીર</div><div class="manka-num">૫</div></div>
+        </div>
+        <div class="bead-slot pos-top" id="slotTop">
+          <div class="manka"><div class="manka-text">રામકબીર</div><div class="manka-num">૪</div></div>
+        </div>
+        <div class="bead-slot pos-center" id="slotCenter">
+          <div class="gold-ring">
+            <div class="manka"><div class="manka-text">રામકબીર</div><div class="manka-num">૩</div></div>
+          </div>
+        </div>
+        <div class="bead-slot pos-bottom" id="slotBottom">
+          <div class="manka"><div class="manka-text">રામકબીર</div><div class="manka-num">૨</div></div>
+        </div>
+        <div class="bead-slot pos-far-bottom" id="slotFarBottom">
+          <div class="manka"><div class="manka-text">રામકબીર</div><div class="manka-num">૧</div></div>
+        </div>
+      </div>
+
+      <!-- HINT PILL MATCHING SCREENSHOT -->
+      <div class="swipe-hint-pill">જાપ કરવા મણકાને નીચે ખેંચો (Swipe Down)</div>
+    </div>
+
+    <!-- BOTTOM 3 BUTTONS MATCHING SCREENSHOT -->
+    <div class="bottom-actions">
+      <button class="btn-auto-jap" id="autoJapBtn" onclick="toggleAutoJap()">
+        <span id="autoJapIcon">▶</span> <span id="autoJapText">ઓટો-જાપ</span>
+      </button>
+      <button class="btn-speed" id="speedBtn" onclick="cycleSpeed()">૨.૫ S</button>
+      <button class="btn-reset" onclick="confirmReset()">રીસેટ (RESET)</button>
+    </div>
+    <div class="main-footer-credit">
+      Made by Prashant Bhagat from Vadodara
+    </div>
+  </div>
+</div>
+
+<!-- MERU VANDAN POPUP -->
+<div class="meru-modal" id="meruModal">
+  <div class="meru-card">
+    <div style="font-size:42px;margin-bottom:4px">🙏</div>
+    <div class="meru-title">॥ રામકબીર ॥</div>
+    <div style="font-size:15px;color:var(--text-white);font-weight:700;margin-bottom:22px;">૧૦૮ રામકબીરની માળા પૂર્ણ થઈ!</div>
+    <button class="meru-btn" onclick="reverseMalaAndContinue()">🔄 માળા ચાલુ રાખો</button>
+    <button class="meru-btn-sec" onclick="closeMeruModal()">🙏 ॥ રામકબીર ॥</button>
+  </div>
+</div>
+
+<!-- HISTORY SCREEN -->
+<div id="history" class="screen">
+  <div class="history-header">
+    <button class="header-btn" onclick="hideHistory()">←</button>
+    <div class="history-title">જાપ ઇતિહાસ / Log</div>
+    <button class="header-btn" onclick="clearHistory()" style="font-size:14px;">Clear</button>
+  </div>
+  <div class="hist-list" id="histList"></div>
+</div>
+
+<script>
+// State
+var S = {
+  current: 1,
+  totalMala: 0,
+  todayMala: 0,
+  todayBeads: 0,
+  todayDate: '',
+  soundEnabled: true,
+  vibrationEnabled: true,
+  speedIndex: 2 // 0: 1.5s, 1: 2.0s, 2: 2.5s, 3: 3.0s, 4: 4.0s
+};
+
+var SPEEDS = [
+  { val: 1500, label: '૧.૫ S' },
+  { val: 2000, label: '૨.૦ S' },
+  { val: 2500, label: '૨.૫ S' },
+  { val: 3000, label: '૩.૦ S' },
+  { val: 4000, label: '૪.૦ S' }
+];
+
+var audioCtx = null;
+var isAnimating = false;
+var autoJapTimer = null;
+var isAutoJapRunning = false;
+
+// Gujarati Numbers Converter
+var GU_DIGITS = ['૦','૧','૨','૩','૪','૫','૬','૭','૮','૯'];
+function toGuDigits(n){
+  return n.toString().replace(/[0-9]/g, function(d){
+    return GU_DIGITS[parseInt(d)];
+  });
+}
+
+function initAudio(){
+  if(!audioCtx){
+    audioCtx = new (window.AudioContext||window.webkitAudioContext)();
+  }
+  if(audioCtx.state === 'suspended'){
+    audioCtx.resume();
+  }
+}
+
+// Realistic Wood Bead Sound ("ટૉક" લાકડાનો મણકો અથડાય તેવો અવાજ)
+function playWoodClickSound(){
+  if(!S.soundEnabled) return;
+  try{
+    initAudio();
+    var t = audioCtx.currentTime;
+    
+    // Low woody body resonance
+    var osc1 = audioCtx.createOscillator();
+    var gain1 = audioCtx.createGain();
+    osc1.type = 'triangle';
+    osc1.frequency.setValueAtTime(340, t);
+    osc1.frequency.exponentialRampToValueAtTime(140, t + 0.055);
+    gain1.gain.setValueAtTime(0.5, t);
+    gain1.gain.exponentialRampToValueAtTime(0.001, t + 0.055);
+    osc1.connect(gain1);
+    gain1.connect(audioCtx.destination);
+    osc1.start(t);
+    osc1.stop(t + 0.055);
+
+    // Sharp attack click
+    var osc2 = audioCtx.createOscillator();
+    var gain2 = audioCtx.createGain();
+    osc2.type = 'sine';
+    osc2.frequency.setValueAtTime(980, t);
+    osc2.frequency.exponentialRampToValueAtTime(420, t + 0.025);
+    gain2.gain.setValueAtTime(0.4, t);
+    gain2.gain.exponentialRampToValueAtTime(0.001, t + 0.025);
+    osc2.connect(gain2);
+    gain2.connect(audioCtx.destination);
+    osc2.start(t);
+    osc2.stop(t + 0.025);
+  }catch(e){}
+}
+
+function triggerVibrate(pattern){
+  if(!S.vibrationEnabled) return;
+  if(navigator.vibrate) navigator.vibrate(pattern || 28);
+}
+
+// Meru Completion Grand Bell
+function playMeruCompletionSound(){
+  if(S.soundEnabled){
+    try{
+      initAudio();
+      var t = audioCtx.currentTime;
+      var notes = [392, 523, 659, 784, 1046];
+      notes.forEach(function(freq, i){
+        var osc = audioCtx.createOscillator();
+        var gain = audioCtx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(freq, t + i * 0.1);
+        gain.gain.setValueAtTime(0.3, t + i * 0.1);
+        gain.gain.exponentialRampToValueAtTime(0.001, t + i * 0.1 + 0.45);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start(t + i * 0.1);
+        osc.stop(t + i * 0.1 + 0.45);
+      });
+    }catch(e){}
+  }
+  triggerVibrate([60, 40, 60, 40, 150]);
+}
+
+function loadState(){
+  try{
+    var s = localStorage.getItem('rk_jap_app_exact');
+    if(s) S = Object.assign(S, JSON.parse(s));
+    var today = new Date().toDateString();
+    if(S.todayDate !== today){
+      S.todayMala = 0;
+      S.todayBeads = 0;
+      S.todayDate = today;
+    }
+  }catch(e){}
+}
+
+function save(){
+  try{localStorage.setItem('rk_jap_app_exact', JSON.stringify(S));}catch(e){}
+}
+
+function logHistory(type){
+  try{
+    var h = JSON.parse(localStorage.getItem('rk_hist_app_exact')||'[]');
+    var now = new Date();
+    h.unshift({
+      t: now.toLocaleString('gu-IN') || now.toLocaleString(),
+      type: type,
+      mala: S.totalMala,
+      beads: S.current
+    });
+    if(h.length > 100) h = h.slice(0, 100);
+    localStorage.setItem('rk_hist_app_exact', JSON.stringify(h));
+  }catch(e){}
+}
+
+function updateUI(){
+  document.getElementById('counterDisplay').textContent = toGuDigits(S.current) + ' / ૧૦૮';
+  document.getElementById('totalMalaCount').textContent = toGuDigits(S.totalMala);
+  document.getElementById('speedBtn').textContent = SPEEDS[S.speedIndex].label;
+  
+  // Icon States
+  document.getElementById('soundIconBtn').textContent = S.soundEnabled ? '📢' : '🔇';
+  document.getElementById('vibeIconBtn').textContent = S.vibrationEnabled ? '📳' : '📴';
+
+  renderBeadSlots();
+}
+
+function renderBeadSlots(){
+  var cur = S.current;
+
+  // Center (Active)
+  fillSlot(document.getElementById('slotCenter'), cur);
+
+  // Top (Upcoming + 1)
+  var topNum = cur < 108 ? cur + 1 : 0; // 0 is Meru
+  fillSlot(document.getElementById('slotTop'), topNum);
+
+  // Far Top (Upcoming + 2)
+  var farTopNum = topNum === 0 ? 1 : (topNum < 108 ? topNum + 1 : 0);
+  fillSlot(document.getElementById('slotFarTop'), farTopNum);
+
+  // Bottom (Done - 1)
+  var btmNum = cur > 1 ? cur - 1 : (S.totalMala > 0 ? 0 : 108);
+  fillSlot(document.getElementById('slotBottom'), btmNum);
+
+  // Far Bottom (Done - 2)
+  var farBtmNum = btmNum > 1 ? btmNum - 1 : (btmNum === 0 ? 108 : 107);
+  fillSlot(document.getElementById('slotFarBottom'), farBtmNum);
+}
+
+function fillSlot(slotEl, num){
+  if(!slotEl) return;
+  var mankaEl = slotEl.querySelector('.manka');
+  var textEl = slotEl.querySelector('.manka-text');
+  var numEl = slotEl.querySelector('.manka-num');
+  
+  if(num === 0){
+    // Meru Bead
+    mankaEl.className = 'manka is-meru';
+    textEl.innerHTML = 'રામકબીર';
+    numEl.textContent = '';
+  } else {
+    mankaEl.className = 'manka';
+    textEl.innerHTML = 'રામકબીર';
+    numEl.textContent = toGuDigits(num);
+  }
+}
+
+// ADVANCE BEAD ANIMATION
+function advanceBead(direction){
+  initAudio();
+  if(isAnimating) return;
+  isAnimating = true;
+
+  playWoodClickSound();
+  triggerVibrate(26);
+  S.todayBeads++;
+
+  var track = document.getElementById('beadsTrack');
+  var shift = (direction === 'up') ? -80 : 80;
+
+  track.style.transition = 'transform 0.15s cubic-bezier(0.1, 0.9, 0.2, 1)';
+  track.style.transform = 'translateY(' + shift + 'px)';
+
+  setTimeout(function(){
+    track.style.transition = 'none';
+    track.style.transform = 'translateY(0px)';
+
+    if(S.current >= 108){
+      S.totalMala++;
+      S.todayMala++;
+      logHistory('MALA_COMPLETE');
+      save();
+      updateUI();
+      isAnimating = false;
+      showMeruModal();
+    } else {
+      S.current++;
+      save();
+      updateUI();
+      isAnimating = false;
+    }
+  }, 160);
+}
+
+// SETUP REAL-TIME TOUCH & DRAG
+function setupBeadTouch(){
+  var stage = document.getElementById('malaStage');
+  var track = document.getElementById('beadsTrack');
+  var startY = 0, distY = 0, isTouching = false, startTime = 0;
+
+  stage.addEventListener('touchstart', function(e){
+    initAudio();
+    if(isAnimating) return;
+    startY = e.touches[0].clientY;
+    distY = 0;
+    startTime = Date.now();
+    isTouching = true;
+    track.style.transition = 'none';
+  }, {passive:false});
+
+  stage.addEventListener('touchmove', function(e){
+    if(!isTouching || isAnimating) return;
+    e.preventDefault();
+    var curY = e.touches[0].clientY;
+    distY = curY - startY;
+
+    var moveY = Math.max(-80, Math.min(80, distY));
+    track.style.transform = 'translateY(' + moveY + 'px)';
+  }, {passive:false});
+
+  stage.addEventListener('touchend', function(e){
+    if(!isTouching || isAnimating) return;
+    isTouching = false;
+    var dt = Date.now() - startTime;
+
+    if(distY >= 20 || (distY > 8 && dt < 220)){
+      advanceBead('down');
+    } else if(distY <= -20 || (distY < -8 && dt < 220)){
+      advanceBead('up');
+    } else if(Math.abs(distY) < 8 && dt < 300){
+      advanceBead('down');
+    } else {
+      track.style.transition = 'transform 0.14s ease-out';
+      track.style.transform = 'translateY(0px)';
+    }
+  });
+
+  // Desktop Mouse Support
+  stage.addEventListener('mousedown', function(e){
+    initAudio();
+    if(isAnimating) return;
+    startY = e.clientY;
+    distY = 0;
+    startTime = Date.now();
+    isTouching = true;
+    track.style.transition = 'none';
+  });
+
+  document.addEventListener('mousemove', function(e){
+    if(!isTouching || isAnimating) return;
+    distY = e.clientY - startY;
+    var moveY = Math.max(-80, Math.min(80, distY));
+    track.style.transform = 'translateY(' + moveY + 'px)';
+  });
+
+  document.addEventListener('mouseup', function(e){
+    if(!isTouching || isAnimating) return;
+    isTouching = false;
+    var dt = Date.now() - startTime;
+
+    if(distY >= 20 || (distY > 8 && dt < 220)){
+      advanceBead('down');
+    } else if(distY <= -20 || (distY < -8 && dt < 220)){
+      advanceBead('up');
+    } else if(Math.abs(distY) < 8 && dt < 300){
+      advanceBead('down');
+    } else {
+      track.style.transition = 'transform 0.14s ease-out';
+      track.style.transform = 'translateY(0px)';
+    }
+  });
+}
+
+// AUTO JAP
+function toggleAutoJap(){
+  initAudio();
+  if(isAutoJapRunning){
+    stopAutoJap();
+  } else {
+    startAutoJap();
+  }
+}
+
+function startAutoJap(){
+  isAutoJapRunning = true;
+  document.getElementById('autoJapBtn').style.background = '#D84315';
+  document.getElementById('autoJapIcon').textContent = '⏸';
+  document.getElementById('autoJapText').textContent = 'રોકો';
+  
+  advanceBead('down');
+  var speedMs = SPEEDS[S.speedIndex].val;
+  autoJapTimer = setInterval(function(){
+    advanceBead('down');
+  }, speedMs);
+}
+
+function stopAutoJap(){
+  isAutoJapRunning = false;
+  if(autoJapTimer) clearInterval(autoJapTimer);
+  document.getElementById('autoJapBtn').style.background = '#FF5722';
+  document.getElementById('autoJapIcon').textContent = '▶';
+  document.getElementById('autoJapText').textContent = 'ઓટો-જાપ';
+}
+
+function cycleSpeed(){
+  initAudio();
+  S.speedIndex = (S.speedIndex + 1) % SPEEDS.length;
+  save();
+  updateUI();
+  if(isAutoJapRunning){
+    stopAutoJap();
+    startAutoJap();
+  }
+}
+
+// TOGGLES
+function toggleSound(){
+  initAudio();
+  S.soundEnabled = !S.soundEnabled;
+  save();
+  updateUI();
+  if(S.soundEnabled) playWoodClickSound();
+}
+
+function toggleVibration(){
+  S.vibrationEnabled = !S.vibrationEnabled;
+  save();
+  updateUI();
+  if(S.vibrationEnabled) triggerVibrate(35);
+}
+
+function confirmReset(){
+  initAudio();
+  if(confirm('માળા ૧ થી ફરી શરૂ કરવી છે?\n(નોંધ: કુલ પૂરી કરેલ માળાની સંખ્યા reset નહીં થાય)')){
+    stopAutoJap();
+    logHistory('RESET');
+    S.current = 1;
+    save();
+    updateUI();
+  }
+}
+
+// MERU MODAL
+function showMeruModal(){
+  stopAutoJap();
+  playMeruCompletionSound();
+  setTimeout(function(){
+    document.getElementById('meruModal').classList.add('show');
+  }, 200);
+}
+
+function closeMeruModal(){
+  document.getElementById('meruModal').classList.remove('show');
+}
+
+function reverseMalaAndContinue(){
+  closeMeruModal();
+  S.current = 1;
+  save();
+  updateUI();
+  triggerVibrate([40, 40]);
+}
+
+// NAVIGATION
+function startJapFromWelcome(){
+  initAudio();
+  document.getElementById('welcome').classList.remove('active');
+  document.getElementById('main').classList.add('active');
+  loadState();
+  updateUI();
+  setupBeadTouch();
+}
+
+function goToWelcome(){
+  stopAutoJap();
+  document.getElementById('main').classList.remove('active');
+  document.getElementById('history').classList.remove('active');
+  document.getElementById('welcome').classList.add('active');
+}
+
+function showHistory(){
+  stopAutoJap();
+  document.getElementById('main').classList.remove('active');
+  document.getElementById('history').classList.add('active');
+  renderHistory();
+}
+function hideHistory(){
+  document.getElementById('history').classList.remove('active');
+  document.getElementById('main').classList.add('active');
+}
+
+function renderHistory(){
+  var h = [];
+  try{h = JSON.parse(localStorage.getItem('rk_hist_app_exact')||'[]');}catch(e){}
+  var el = document.getElementById('histList');
+  if(!h.length){
+    el.innerHTML = '<div class="hist-empty">🙏<br><br>હજી કોઈ ઇતિહાસ નથી.<br>જાપ શરૂ કરો!</div>';
+    return;
+  }
+  el.innerHTML = h.map(function(item){
+    var icon = item.type === 'MALA_COMPLETE' ? '📿' : item.type === 'RESET' ? '🔄' : '🙏';
+    var label = item.type === 'MALA_COMPLETE' ? 'માળા પૂર્ણ (મેરુ વંદન)' : item.type === 'RESET' ? 'માળા રિસેટ' : 'જાપ';
+    return '<div class="hist-item"><div class="hist-date">' + item.t + '</div><div class="hist-info">' + icon + ' ' + label + ' — કુલ <span>'+toGuDigits(item.mala)+'</span> માળા</div></div>';
+  }).join('');
+}
+
+function clearHistory(){
+  if(confirm('જાપ ઇતિહાસ clear કરવો છે?')){
+    try{localStorage.removeItem('rk_hist_app_exact');}catch(e){}
+    renderHistory();
+  }
+}
+
+// Service Worker for Offline PWA
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('./sw.js').catch(function(err){
+      console.log('SW registration error:', err);
+    });
+  });
+}
+
+// PWA Install Prompt for Android
+var deferredInstallPrompt = null;
+window.addEventListener('beforeinstallprompt', function(e){
+  e.preventDefault();
+  deferredInstallPrompt = e;
+  var btn = document.getElementById('installAppBtn');
+  if(btn) btn.style.display = 'inline-flex';
+});
+
+function installPWA(){
+  if(deferredInstallPrompt){
+    deferredInstallPrompt.prompt();
+    deferredInstallPrompt.userChoice.then(function(choice){
+      if(choice.outcome === 'accepted'){
+        var btn = document.getElementById('installAppBtn');
+        if(btn) btn.style.display = 'none';
+      }
+      deferredInstallPrompt = null;
+    });
+  } else {
+    alert('મોબાઇલમાં એપ ઇન્સ્ટોલ કરવા માટે:\nક્રોમ બ્રાઉઝરના ઉપરના ૩ ટપકાં (⋮) પર ક્લિક કરી "Install app" અથવા "Add to Home screen" પસંદ કરો.');
+  }
+}
+
+window.addEventListener('appinstalled', function(){
+  var btn = document.getElementById('installAppBtn');
+  if(btn) btn.style.display = 'none';
+  deferredInstallPrompt = null;
+});
+
+loadState();
+</script>
+</body>
+</html>

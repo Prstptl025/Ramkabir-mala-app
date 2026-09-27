@@ -1,0 +1,24 @@
+{
+  "name": "શ્રી રામકબીર જાપ માળા",
+  "short_name": "રામકબીર જાપ",
+  "description": "૧૦૮ મણકાની શ્રી રામકબીર ડિજિટલ જાપ માળા (Offline PWA)",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#140700",
+  "theme_color": "#FF3D00",
+  "icons": [
+    {
+      "src": "./icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
