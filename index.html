@@ -991,6 +991,13 @@ function reverseMalaAndContinue(){
 // NAVIGATION
 function startJapFromWelcome(){
   initAudio();
+  try{
+    if(document.documentElement.requestFullscreen){
+      document.documentElement.requestFullscreen().catch(function(){});
+    } else if(document.documentElement.webkitRequestFullscreen){
+      document.documentElement.webkitRequestFullscreen();
+    }
+  }catch(e){}
   document.getElementById('welcome').classList.remove('active');
   document.getElementById('main').classList.add('active');
   loadState();
